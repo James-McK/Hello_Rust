@@ -4,6 +4,7 @@ use std::io;
 
 fn main() {
     let secret_number = rand::thread_rng().gen_range(1..101);
+    let mut guesses: Vec<i32> = Vec::new();
 
     println!(
         "\
@@ -34,6 +35,13 @@ fn main() {
             println!("Please enter a number in the correct range (0-100)!");
             continue;
         }
+
+        guesses.push(guess);
+        print!("\nGuesses so far: ");
+        for i in 0..(guesses.len() - 1) {
+            print!("{}, ", guesses[i]);
+        }
+        println!("{}.", guesses[guesses.len() - 1]);
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too Low!"),
