@@ -12,7 +12,7 @@ fn main() {
     println!(
         "\
 **********************
- James' Guessing Game 
+ James' Guessing Game
 **********************"
     );
 
